@@ -1,5 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
+import { ThemeToggle } from "./theme-toggle";
 
 const CALENDLY_URL = "https://calendly.com/your-handle/30min";
 const EMAIL = "gyanchand20203063@gmail.com";
@@ -26,25 +27,28 @@ export default function Home() {
 
 function Nav() {
   return (
-    <header className="sticky top-0 z-50 border-b border-zinc-800/60 bg-zinc-950/80 backdrop-blur">
+    <header className="sticky top-0 z-50 border-b border-zinc-200/60 bg-white/80 backdrop-blur dark:border-zinc-800/60 dark:bg-zinc-950/80">
       <div className="mx-auto flex max-w-6xl items-center justify-between px-6 py-4">
         <Link href="#top" className="font-semibold tracking-tight">
-          <span className="text-emerald-400">/</span> Gyan Sharma
+          <span className="text-emerald-600 dark:text-emerald-400">/</span> Gyan Sharma
         </Link>
-        <nav className="hidden gap-8 text-sm text-zinc-400 md:flex">
-          <a href="#services" className="hover:text-zinc-100">Services</a>
-          <a href="#process" className="hover:text-zinc-100">Process</a>
-          <a href="#about" className="hover:text-zinc-100">About</a>
-          <a href="#faq" className="hover:text-zinc-100">FAQ</a>
+        <nav className="hidden gap-8 text-sm text-zinc-600 dark:text-zinc-400 md:flex">
+          <a href="#services" className="hover:text-zinc-900 dark:hover:text-zinc-100">Services</a>
+          <a href="#process" className="hover:text-zinc-900 dark:hover:text-zinc-100">Process</a>
+          <a href="#about" className="hover:text-zinc-900 dark:hover:text-zinc-100">About</a>
+          <a href="#faq" className="hover:text-zinc-900 dark:hover:text-zinc-100">FAQ</a>
         </nav>
-        <a
-          href={CALENDLY_URL}
-          target="_blank"
-          rel="noreferrer"
-          className="rounded-md bg-emerald-500 px-4 py-2 text-sm font-medium text-zinc-950 transition hover:bg-emerald-400"
-        >
-          Book a call
-        </a>
+        <div className="flex items-center gap-3">
+          <ThemeToggle />
+          <a
+            href={CALENDLY_URL}
+            target="_blank"
+            rel="noreferrer"
+            className="rounded-md bg-emerald-600 px-4 py-2 text-sm font-medium text-white transition hover:bg-emerald-500 dark:bg-emerald-500 dark:text-zinc-950 dark:hover:bg-emerald-400"
+          >
+            Book a call
+          </a>
+        </div>
       </div>
     </header>
   );
@@ -52,18 +56,18 @@ function Nav() {
 
 function Hero() {
   return (
-    <section id="top" className="relative overflow-hidden border-b border-zinc-900">
+    <section id="top" className="relative overflow-hidden border-b border-zinc-200 dark:border-zinc-900">
       <div className="mx-auto max-w-6xl px-6 py-24 md:py-32">
         <div className="max-w-3xl">
-          <span className="inline-flex items-center gap-2 rounded-full border border-emerald-500/20 bg-emerald-500/10 px-3 py-1 text-xs font-medium text-emerald-300">
-            <span className="h-1.5 w-1.5 rounded-full bg-emerald-400" />
+          <span className="inline-flex items-center gap-2 rounded-full border border-emerald-500/30 bg-emerald-50 px-3 py-1 text-xs font-medium text-emerald-700 dark:border-emerald-500/20 dark:bg-emerald-500/10 dark:text-emerald-300">
+            <span className="h-1.5 w-1.5 rounded-full bg-emerald-500 dark:bg-emerald-400" />
             Accepting new clients
           </span>
           <h1 className="mt-6 text-4xl font-semibold leading-tight tracking-tight md:text-6xl">
             I code, backtest, and deploy your{" "}
-            <span className="text-emerald-400">trading strategies.</span>
+            <span className="text-emerald-600 dark:text-emerald-400">trading strategies.</span>
           </h1>
-          <p className="mt-6 max-w-2xl text-lg leading-relaxed text-zinc-400">
+          <p className="mt-6 max-w-2xl text-lg leading-relaxed text-zinc-600 dark:text-zinc-400">
             Bring me your idea — a setup on a chart, a rulebook, a paper you read.
             I turn it into clean Python, run rigorous backtests on real
             tick-level data, and (if you want) deploy it live across your broker
@@ -74,18 +78,18 @@ function Hero() {
               href={CALENDLY_URL}
               target="_blank"
               rel="noreferrer"
-              className="rounded-md bg-emerald-500 px-6 py-3 text-sm font-medium text-zinc-950 transition hover:bg-emerald-400"
+              className="rounded-md bg-emerald-600 px-6 py-3 text-sm font-medium text-white transition hover:bg-emerald-500 dark:bg-emerald-500 dark:text-zinc-950 dark:hover:bg-emerald-400"
             >
               Book a 30-min discovery call →
             </a>
             <a
               href="#services"
-              className="rounded-md border border-zinc-700 px-6 py-3 text-sm font-medium text-zinc-200 transition hover:bg-zinc-900"
+              className="rounded-md border border-zinc-300 px-6 py-3 text-sm font-medium text-zinc-800 transition hover:bg-zinc-100 dark:border-zinc-700 dark:text-zinc-200 dark:hover:bg-zinc-900"
             >
               See packages
             </a>
           </div>
-          <div className="mt-12 grid grid-cols-2 gap-6 text-sm text-zinc-400 md:grid-cols-4 md:gap-10">
+          <div className="mt-12 grid grid-cols-2 gap-6 text-sm text-zinc-600 dark:text-zinc-400 md:grid-cols-4 md:gap-10">
             <Stat label="Broker integrations" value="Zerodha · Dhan · Fyers" />
             <Stat label="Backtest engine" value="Tick-level, sub-ms" />
             <Stat label="Languages" value="Python · SQL" />
@@ -102,7 +106,7 @@ function Stat({ label, value }: { label: string; value: string }) {
   return (
     <div>
       <div className="text-xs uppercase tracking-wider text-zinc-500">{label}</div>
-      <div className="mt-1 text-zinc-200">{value}</div>
+      <div className="mt-1 text-zinc-800 dark:text-zinc-200">{value}</div>
     </div>
   );
 }
@@ -111,10 +115,10 @@ function BgGrid() {
   return (
     <div
       aria-hidden
-      className="pointer-events-none absolute inset-0 -z-10 opacity-[0.04]"
+      className="pointer-events-none absolute inset-0 -z-10 text-zinc-900 opacity-[0.04] dark:text-white"
       style={{
         backgroundImage:
-          "linear-gradient(to right, #fff 1px, transparent 1px), linear-gradient(to bottom, #fff 1px, transparent 1px)",
+          "linear-gradient(to right, currentColor 1px, transparent 1px), linear-gradient(to bottom, currentColor 1px, transparent 1px)",
         backgroundSize: "48px 48px",
       }}
     />
@@ -168,7 +172,7 @@ function Services() {
   ];
 
   return (
-    <section id="services" className="border-b border-zinc-900">
+    <section id="services" className="border-b border-zinc-200 dark:border-zinc-900">
       <div className="mx-auto max-w-6xl px-6 py-24">
         <SectionHeading
           eyebrow="Services"
@@ -181,26 +185,26 @@ function Services() {
               key={t.name}
               className={`relative rounded-xl border p-6 transition ${
                 t.highlight
-                  ? "border-emerald-500/40 bg-emerald-500/5"
-                  : "border-zinc-800 bg-zinc-900/30 hover:border-zinc-700"
+                  ? "border-emerald-500/40 bg-emerald-50 dark:bg-emerald-500/5"
+                  : "border-zinc-200 bg-zinc-50 hover:border-zinc-300 dark:border-zinc-800 dark:bg-zinc-900/30 dark:hover:border-zinc-700"
               }`}
             >
               {t.highlight && (
-                <span className="absolute -top-3 right-6 rounded-full bg-emerald-500 px-3 py-1 text-xs font-medium text-zinc-950">
+                <span className="absolute -top-3 right-6 rounded-full bg-emerald-600 px-3 py-1 text-xs font-medium text-white dark:bg-emerald-500 dark:text-zinc-950">
                   Most popular
                 </span>
               )}
               <h3 className="text-lg font-semibold">{t.name}</h3>
-              <div className="mt-2 text-2xl font-semibold tracking-tight text-emerald-400">
+              <div className="mt-2 text-2xl font-semibold tracking-tight text-emerald-600 dark:text-emerald-400">
                 {t.price}
               </div>
-              <p className="mt-3 text-sm leading-relaxed text-zinc-400">
+              <p className="mt-3 text-sm leading-relaxed text-zinc-600 dark:text-zinc-400">
                 {t.description}
               </p>
-              <ul className="mt-6 space-y-2 text-sm text-zinc-300">
+              <ul className="mt-6 space-y-2 text-sm text-zinc-700 dark:text-zinc-300">
                 {t.features.map((f) => (
                   <li key={f} className="flex gap-2">
-                    <span className="mt-1 text-emerald-400">✓</span>
+                    <span className="mt-1 text-emerald-600 dark:text-emerald-400">✓</span>
                     <span>{f}</span>
                   </li>
                 ))}
@@ -211,8 +215,8 @@ function Services() {
                 rel="noreferrer"
                 className={`mt-8 inline-block w-full rounded-md py-2.5 text-center text-sm font-medium transition ${
                   t.highlight
-                    ? "bg-emerald-500 text-zinc-950 hover:bg-emerald-400"
-                    : "border border-zinc-700 text-zinc-200 hover:bg-zinc-800"
+                    ? "bg-emerald-600 text-white hover:bg-emerald-500 dark:bg-emerald-500 dark:text-zinc-950 dark:hover:bg-emerald-400"
+                    : "border border-zinc-300 text-zinc-800 hover:bg-zinc-100 dark:border-zinc-700 dark:text-zinc-200 dark:hover:bg-zinc-800"
                 }`}
               >
                 {t.cta}
@@ -250,7 +254,7 @@ function Process() {
   ];
 
   return (
-    <section id="process" className="border-b border-zinc-900 bg-zinc-950">
+    <section id="process" className="border-b border-zinc-200 bg-zinc-50 dark:border-zinc-900 dark:bg-zinc-950">
       <div className="mx-auto max-w-6xl px-6 py-24">
         <SectionHeading
           eyebrow="Process"
@@ -261,11 +265,11 @@ function Process() {
           {steps.map((s) => (
             <div
               key={s.n}
-              className="rounded-xl border border-zinc-800 bg-zinc-900/30 p-6"
+              className="rounded-xl border border-zinc-200 bg-white p-6 dark:border-zinc-800 dark:bg-zinc-900/30"
             >
-              <div className="font-mono text-sm text-emerald-400">{s.n}</div>
+              <div className="font-mono text-sm text-emerald-600 dark:text-emerald-400">{s.n}</div>
               <h3 className="mt-3 text-lg font-semibold">{s.title}</h3>
-              <p className="mt-2 text-sm leading-relaxed text-zinc-400">
+              <p className="mt-2 text-sm leading-relaxed text-zinc-600 dark:text-zinc-400">
                 {s.body}
               </p>
             </div>
@@ -278,7 +282,7 @@ function Process() {
 
 function About() {
   return (
-    <section id="about" className="border-b border-zinc-900">
+    <section id="about" className="border-b border-zinc-200 dark:border-zinc-900">
       <div className="mx-auto grid max-w-6xl gap-12 px-6 py-24 md:grid-cols-5">
         <div className="md:col-span-2">
           <SectionHeading
@@ -292,12 +296,12 @@ function About() {
             width={128}
             height={128}
             priority
-            className="mt-8 h-32 w-32 rounded-full border border-zinc-800 object-cover"
+            className="mt-8 h-32 w-32 rounded-full border border-zinc-200 object-cover dark:border-zinc-800"
           />
         </div>
-        <div className="space-y-6 text-zinc-300 md:col-span-3">
+        <div className="space-y-6 text-zinc-700 dark:text-zinc-300 md:col-span-3">
           <p className="leading-relaxed">
-            I graduated in <strong className="text-white">Mechanical
+            I graduated in <strong className="text-zinc-900 dark:text-white">Mechanical
             Engineering from NIT Allahabad</strong> in 2024 — but I spent most
             of my time there learning Python, building tools, and getting
             obsessed with how markets work. By my last year I&apos;d already
@@ -305,7 +309,7 @@ function About() {
             mechanical degree was going to stay on the wall.
           </p>
           <p className="leading-relaxed">
-            Today I&apos;m a <strong className="text-white">Trading
+            Today I&apos;m a <strong className="text-zinc-900 dark:text-white">Trading
             Infrastructure Developer at Mudraksh and McShaw Tech</strong>,
             where I build the systems that power professional algo desks —
             order management, risk management, real-time market data pipelines
@@ -338,13 +342,13 @@ function About() {
               href={LINKEDIN}
               target="_blank"
               rel="noreferrer"
-              className="rounded-md border border-zinc-700 px-4 py-2 text-zinc-200 transition hover:bg-zinc-900"
+              className="rounded-md border border-zinc-300 px-4 py-2 text-zinc-800 transition hover:bg-zinc-100 dark:border-zinc-700 dark:text-zinc-200 dark:hover:bg-zinc-900"
             >
               LinkedIn →
             </a>
             <a
               href={`mailto:${EMAIL}`}
-              className="rounded-md border border-zinc-700 px-4 py-2 text-zinc-200 transition hover:bg-zinc-900"
+              className="rounded-md border border-zinc-300 px-4 py-2 text-zinc-800 transition hover:bg-zinc-100 dark:border-zinc-700 dark:text-zinc-200 dark:hover:bg-zinc-900"
             >
               Say hi
             </a>
@@ -361,14 +365,14 @@ function Credibility({ label, value }: { label: string; value: string }) {
       <div className="text-xs uppercase tracking-wider text-zinc-500">
         {label}
       </div>
-      <div className="mt-1 text-sm text-zinc-200">{value}</div>
+      <div className="mt-1 text-sm text-zinc-800 dark:text-zinc-200">{value}</div>
     </div>
   );
 }
 
 function SampleWork() {
   return (
-    <section className="border-b border-zinc-900 bg-zinc-950">
+    <section className="border-b border-zinc-200 bg-zinc-50 dark:border-zinc-900 dark:bg-zinc-950">
       <div className="mx-auto max-w-6xl px-6 py-24">
         <SectionHeading
           eyebrow="Sample work"
@@ -395,18 +399,18 @@ function SampleWork() {
           ].map((c) => (
             <div
               key={c.title}
-              className="rounded-xl border border-zinc-800 bg-zinc-900/30 p-6"
+              className="rounded-xl border border-zinc-200 bg-white p-6 dark:border-zinc-800 dark:bg-zinc-900/30"
             >
               <div className="flex items-center justify-between">
                 <span className="text-xs uppercase tracking-wider text-zinc-500">
                   Case study
                 </span>
-                <span className="rounded-full bg-emerald-500/10 px-2.5 py-0.5 text-xs font-medium text-emerald-300">
+                <span className="rounded-full bg-emerald-100 px-2.5 py-0.5 text-xs font-medium text-emerald-700 dark:bg-emerald-500/10 dark:text-emerald-300">
                   {c.metric}
                 </span>
               </div>
               <h3 className="mt-4 text-base font-semibold">{c.title}</h3>
-              <p className="mt-2 text-sm leading-relaxed text-zinc-400">
+              <p className="mt-2 text-sm leading-relaxed text-zinc-600 dark:text-zinc-400">
                 {c.body}
               </p>
             </div>
@@ -445,19 +449,19 @@ function FAQ() {
     },
   ];
   return (
-    <section id="faq" className="border-b border-zinc-900">
+    <section id="faq" className="border-b border-zinc-200 dark:border-zinc-900">
       <div className="mx-auto max-w-3xl px-6 py-24">
         <SectionHeading eyebrow="FAQ" title="Common questions" subtitle="" />
-        <div className="mt-12 divide-y divide-zinc-800 border-y border-zinc-800">
+        <div className="mt-12 divide-y divide-zinc-200 border-y border-zinc-200 dark:divide-zinc-800 dark:border-zinc-800">
           {qs.map((item) => (
             <details key={item.q} className="group py-5">
-              <summary className="flex cursor-pointer list-none items-center justify-between text-base font-medium text-zinc-100">
+              <summary className="flex cursor-pointer list-none items-center justify-between text-base font-medium text-zinc-900 dark:text-zinc-100">
                 {item.q}
-                <span className="ml-4 text-emerald-400 transition group-open:rotate-45">
+                <span className="ml-4 text-emerald-600 transition group-open:rotate-45 dark:text-emerald-400">
                   +
                 </span>
               </summary>
-              <p className="mt-3 text-sm leading-relaxed text-zinc-400">
+              <p className="mt-3 text-sm leading-relaxed text-zinc-600 dark:text-zinc-400">
                 {item.a}
               </p>
             </details>
@@ -472,13 +476,13 @@ function Contact() {
   return (
     <section
       id="contact"
-      className="border-b border-zinc-900 bg-gradient-to-b from-zinc-950 to-emerald-950/20"
+      className="border-b border-zinc-200 bg-gradient-to-b from-white to-emerald-50 dark:border-zinc-900 dark:from-zinc-950 dark:to-emerald-950/20"
     >
       <div className="mx-auto max-w-4xl px-6 py-24 text-center">
         <h2 className="text-3xl font-semibold tracking-tight md:text-5xl">
           Have a strategy in mind?
         </h2>
-        <p className="mx-auto mt-4 max-w-2xl text-lg text-zinc-400">
+        <p className="mx-auto mt-4 max-w-2xl text-lg text-zinc-600 dark:text-zinc-400">
           Book a free 30-minute call. We&apos;ll discuss your idea, I&apos;ll
           tell you what&apos;s feasible, and you&apos;ll leave with a clear next
           step — no pressure to commit.
@@ -488,26 +492,26 @@ function Contact() {
             href={CALENDLY_URL}
             target="_blank"
             rel="noreferrer"
-            className="rounded-md bg-emerald-500 px-8 py-3.5 text-sm font-medium text-zinc-950 transition hover:bg-emerald-400"
+            className="rounded-md bg-emerald-600 px-8 py-3.5 text-sm font-medium text-white transition hover:bg-emerald-500 dark:bg-emerald-500 dark:text-zinc-950 dark:hover:bg-emerald-400"
           >
             Book a discovery call →
           </a>
           <a
             href={`mailto:${EMAIL}`}
-            className="rounded-md border border-zinc-700 px-8 py-3.5 text-sm font-medium text-zinc-200 transition hover:bg-zinc-900"
+            className="rounded-md border border-zinc-300 px-8 py-3.5 text-sm font-medium text-zinc-800 transition hover:bg-zinc-100 dark:border-zinc-700 dark:text-zinc-200 dark:hover:bg-zinc-900"
           >
             Email instead
           </a>
         </div>
-        <div className="mt-10 flex flex-wrap justify-center gap-x-8 gap-y-3 text-sm text-zinc-400">
-          <a href={`mailto:${EMAIL}`} className="hover:text-emerald-400">
+        <div className="mt-10 flex flex-wrap justify-center gap-x-8 gap-y-3 text-sm text-zinc-600 dark:text-zinc-400">
+          <a href={`mailto:${EMAIL}`} className="hover:text-emerald-600 dark:hover:text-emerald-400">
             {EMAIL}
           </a>
           <a
             href={LINKEDIN}
             target="_blank"
             rel="noreferrer"
-            className="hover:text-emerald-400"
+            className="hover:text-emerald-600 dark:hover:text-emerald-400"
           >
             LinkedIn
           </a>
@@ -529,35 +533,35 @@ function SectionHeading({
 }) {
   return (
     <div className="max-w-2xl">
-      <div className="text-sm font-medium uppercase tracking-wider text-emerald-400">
+      <div className="text-sm font-medium uppercase tracking-wider text-emerald-600 dark:text-emerald-400">
         {eyebrow}
       </div>
       <h2 className="mt-3 text-3xl font-semibold tracking-tight md:text-4xl">
         {title}
       </h2>
-      {subtitle && <p className="mt-4 text-lg text-zinc-400">{subtitle}</p>}
+      {subtitle && <p className="mt-4 text-lg text-zinc-600 dark:text-zinc-400">{subtitle}</p>}
     </div>
   );
 }
 
 function Footer() {
   return (
-    <footer className="bg-zinc-950 py-10">
+    <footer className="bg-white py-10 dark:bg-zinc-950">
       <div className="mx-auto flex max-w-6xl flex-col items-center justify-between gap-4 px-6 text-sm text-zinc-500 md:flex-row">
         <div>© {new Date().getFullYear()} Gyan Sharma. Built in Noida.</div>
         <div className="flex gap-6">
-          <a href={`mailto:${EMAIL}`} className="hover:text-zinc-300">
+          <a href={`mailto:${EMAIL}`} className="hover:text-zinc-700 dark:hover:text-zinc-300">
             Email
           </a>
           <a
             href={LINKEDIN}
             target="_blank"
             rel="noreferrer"
-            className="hover:text-zinc-300"
+            className="hover:text-zinc-700 dark:hover:text-zinc-300"
           >
             LinkedIn
           </a>
-          <a href="#top" className="hover:text-zinc-300">
+          <a href="#top" className="hover:text-zinc-700 dark:hover:text-zinc-300">
             Back to top
           </a>
         </div>
