@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Link from "next/link";
 
 const CALENDLY_URL = "https://calendly.com/your-handle/30min";
@@ -285,9 +286,14 @@ function About() {
             title="Hi, I'm Gyan."
             subtitle="Engineer by training, trader by curiosity, builder by habit."
           />
-          <div className="mt-8 flex h-32 w-32 items-center justify-center rounded-full border border-zinc-800 bg-zinc-900 text-3xl font-semibold text-emerald-400">
-            GS
-          </div>
+          <Image
+            src="/avatar.jpg"
+            alt="Gyan Sharma"
+            width={128}
+            height={128}
+            priority
+            className="mt-8 h-32 w-32 rounded-full border border-zinc-800 object-cover"
+          />
         </div>
         <div className="space-y-6 text-zinc-300 md:col-span-3">
           <p className="leading-relaxed">
