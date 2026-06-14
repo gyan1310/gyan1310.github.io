@@ -280,31 +280,68 @@ function About() {
     <section id="about" className="border-b border-zinc-900">
       <div className="mx-auto grid max-w-6xl gap-12 px-6 py-24 md:grid-cols-5">
         <div className="md:col-span-2">
-          <SectionHeading eyebrow="About" title="Why work with me" subtitle="" />
+          <SectionHeading
+            eyebrow="About me"
+            title="Hi, I'm Gyan."
+            subtitle="Engineer by training, trader by curiosity, builder by habit."
+          />
+          <div className="mt-8 flex h-32 w-32 items-center justify-center rounded-full border border-zinc-800 bg-zinc-900 text-3xl font-semibold text-emerald-400">
+            GS
+          </div>
         </div>
         <div className="space-y-6 text-zinc-300 md:col-span-3">
           <p className="leading-relaxed">
-            I&apos;m a <strong className="text-white">Trading Infrastructure
-            Developer at Mudraksh and McShaw Tech</strong>, where I build the
-            same systems that power professional algo desks — order management,
-            risk management, market data pipelines with sub-millisecond latency.
+            I graduated in <strong className="text-white">Mechanical
+            Engineering from NIT Allahabad</strong> in 2024 — but I spent most
+            of my time there learning Python, building tools, and getting
+            obsessed with how markets work. By my last year I&apos;d already
+            shipped an end-to-end trading workflow as an intern, and I knew the
+            mechanical degree was going to stay on the wall.
           </p>
           <p className="leading-relaxed">
-            Most freelance &quot;algo coders&quot; can write a Python loop. I&apos;ve
-            shipped the boring, hard parts: failover execution servers, emergency
-            square-off systems that talk directly to broker APIs, automated risk
-            controls that catch exposure breaches before they hit your P&amp;L.
+            Today I&apos;m a <strong className="text-white">Trading
+            Infrastructure Developer at Mudraksh and McShaw Tech</strong>,
+            where I build the systems that power professional algo desks —
+            order management, risk management, real-time market data pipelines
+            with sub-millisecond latency. The boring, hard parts: failover
+            execution servers, emergency square-off systems talking directly to
+            broker APIs, automated risk controls that catch exposure breaches
+            before they hit P&amp;L.
           </p>
           <p className="leading-relaxed">
-            That production background is what you&apos;re hiring. When your
-            strategy goes live, it won&apos;t break the first time a broker
-            rejects an order, a feed goes stale, or the market gaps on open.
+            I started offering this service because of a pattern I kept
+            noticing — retail traders with smart, well-thought-out strategies
+            sitting in spreadsheets and chart annotations, never getting
+            backtested properly, let alone deployed live. The infrastructure
+            gap between &quot;I have an edge&quot; and &quot;it&apos;s running
+            on my account&quot; is exactly what I do for a living.
+          </p>
+          <p className="leading-relaxed">
+            When I&apos;m not writing code, I&apos;m usually reading market
+            microstructure papers, tinkering with my own strategies, or
+            watching the Indian options market do something weird around expiry.
           </p>
           <div className="grid grid-cols-2 gap-6 pt-4">
             <Credibility label="Currently" value="Trading Infra @ Mudraksh" />
             <Credibility label="Education" value="B.Tech, NIT Allahabad" />
             <Credibility label="Stack" value="Python, SQL, AWS, Docker" />
             <Credibility label="Based in" value="Noida, India" />
+          </div>
+          <div className="flex flex-wrap gap-3 pt-2 text-sm">
+            <a
+              href={LINKEDIN}
+              target="_blank"
+              rel="noreferrer"
+              className="rounded-md border border-zinc-700 px-4 py-2 text-zinc-200 transition hover:bg-zinc-900"
+            >
+              LinkedIn →
+            </a>
+            <a
+              href={`mailto:${EMAIL}`}
+              className="rounded-md border border-zinc-700 px-4 py-2 text-zinc-200 transition hover:bg-zinc-900"
+            >
+              Say hi
+            </a>
           </div>
         </div>
       </div>
